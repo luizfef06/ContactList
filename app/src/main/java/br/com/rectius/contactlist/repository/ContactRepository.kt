@@ -74,6 +74,26 @@ class ContactRepository {
         }
     }
 
+    fun deletar(contact: Contact,
+                onComplete: (Contact) -> Unit,
+                onError: (Throwable?) -> Unit) {
+        val idContact : String? = contact.id
+        getContactAPI()
+            .delete(idContact, contact)
+            .enqueue(object : Callback<Contact>{
+                override fun onFailure(call: Call<Contact>, t: Throwable) {
+                    onError(t)
+                }
+
+                override fun onResponse(call: Call<Contact>, response: Response<Contact>) {
+                    if(response.isSuccessful) {
+                        onComplete(response.body()!!)
+                    } else {
+                        onError(Throwable("An error has occurred during delete operation!"))
+                    }
+                }
+            })
+    }
 
 
 

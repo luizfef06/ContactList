@@ -11,7 +11,7 @@ class RetrofitAPI<T> {
 
     fun getClient(c: Class<T>) : T {
         val retrofit = Retrofit.Builder()
-            .baseUrl("https://eesufscar.herokuapp.com/")
+            .baseUrl("https://eesufscar-mobile.herokuapp.com/")
             .addConverterFactory(GsonConverterFactory.create())
             .client(getOkhttpClient())
             .build()

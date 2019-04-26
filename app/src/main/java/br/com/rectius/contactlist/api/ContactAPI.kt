@@ -14,4 +14,7 @@ interface ContactAPI {
 
     @PUT("/api/contacts/{id}")
     fun update(@Path("id") id: String?, @Body contact: Contact): Call<Contact>
+
+    @DELETE("/api/contacts/{id}")
+    fun delete(@Path("id") id: String?, @Body contact: Contact): Call<Contact>
 }

@@ -48,6 +48,16 @@ class FormularioActivity : AppCompatActivity() {
             )
         }
 
+        btDeletar.setOnClickListener {
+            formularioViewModel.salvar(
+                idContact,
+                inputName.editText?.text.toString(),
+                inputEmail.editText?.text.toString(),
+                inputPhoneWork.editText?.text.toString(),
+                inputPhoneMobile.editText?.text.toString()
+            )
+        }
+
         registerObserver()
     }
 

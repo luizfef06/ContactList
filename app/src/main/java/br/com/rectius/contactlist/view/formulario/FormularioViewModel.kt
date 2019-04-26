@@ -41,4 +41,32 @@ class FormularioViewModel : ViewModel() {
 
     }
 
+    fun deletar(
+        id: String? = null,
+        name: String,
+        email: String,
+        phoneWork: String,
+        phoneMobile: String
+    ){
+        isLoading.value = true
+        val phone = Phone(work = phoneWork, mobile = phoneMobile)
+        val contact = Contact(id = id, name = name, email = email, phone = phone)
+
+        contactRepository.deletar(contact,
+            onComplete = {
+                isLoading.value = false
+                responseStatus.value = ResponseStatus(
+                    true,
+                    "Success!"
+                )
+            }, onError = {
+                isLoading.value = false
+                responseStatus.value = ResponseStatus(
+                    false,
+                    it?.message!!
+                )
+            })
+
+    }
+
 }
