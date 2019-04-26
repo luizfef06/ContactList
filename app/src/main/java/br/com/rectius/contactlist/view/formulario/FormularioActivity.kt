@@ -35,6 +35,12 @@ class FormularioActivity : AppCompatActivity() {
             }
         }
 
+        if (idContact == null) {
+            btDeletar.visibility = View.GONE
+        } else {
+            btDeletar.visibility = View.VISIBLE
+        }
+
         formularioViewModel = ViewModelProviders.of(this)
             .get(FormularioViewModel::class.java)
 
@@ -64,6 +70,7 @@ class FormularioActivity : AppCompatActivity() {
     private fun registerObserver() {
         formularioViewModel.responseStatus.observe(this, responseObserver)
         formularioViewModel.isLoading.observe(this, loadingObserver)
+
     }
 
     private var loadingObserver = Observer<Boolean> {

@@ -57,7 +57,8 @@
         <Button android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Apagar"
-                android:id="@+id/btDeletar"/>
+                android:id="@+id/btDeletar"
+                android:color="@color/colorPrimaryDark"/>
     </LinearLayout>
 
     <include layout="@layout/loading"/>

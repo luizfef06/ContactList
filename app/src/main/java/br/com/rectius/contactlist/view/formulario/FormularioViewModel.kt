@@ -22,6 +22,8 @@ class FormularioViewModel : ViewModel() {
         phoneMobile: String
     ) {
         isLoading.value = true
+
+
         val phone = Phone(work = phoneWork, mobile = phoneMobile)
         val contact = Contact(id = id, name = name, email = email, phone = phone)
         contactRepository.salvar(contact,
