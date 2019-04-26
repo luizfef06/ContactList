@@ -49,7 +49,7 @@ class FormularioActivity : AppCompatActivity() {
         }
 
         btDeletar.setOnClickListener {
-            formularioViewModel.salvar(
+            formularioViewModel.deletar(
                 idContact,
                 inputName.editText?.text.toString(),
                 inputEmail.editText?.text.toString(),
